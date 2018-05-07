@@ -19,7 +19,7 @@
       <li class="active"><a href="/">Home</a></li>
       <li> <%= link_to "Se connecter", new_user_session_path %> </li>
       <li><%= link_to "S'enregistrer", new_user_registration_path %> </li>
-      <li><a href="#">Page 3</a></li>
+      <li><%= link_to "Se deconnecter", destroy_user_session_path , method: :delete %> </li>
     </ul>
   </div>
 </nav>
