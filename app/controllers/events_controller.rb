@@ -11,6 +11,9 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
   end
+  def userpage
+    @events = Event.where(:creator_id => current_user.id).all
+  end
 
   # GET /events/new
   def new
@@ -24,8 +27,9 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-    @event = Event.new(event_params)
 
+    @event = Event.new(event_params)
+      @event.creator_id = current_user.id
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
@@ -36,6 +40,10 @@ class EventsController < ApplicationController
       end
     end
   end
+
+
+
+
 
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json

@@ -22,7 +22,8 @@
 
 <p>
   <strong>Creator:</strong>
-  <%= @event.creator_id %>
+  <%= User.find(@event.creator_id).email %>
+
 </p>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
